@@ -2,6 +2,9 @@ from datetime import timedelta
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
+import os
+from load_data import load_excel
+from save_db import save2db
 
 default_args = {
     'owner': 'airflow',
@@ -23,11 +26,18 @@ dag = DAG(
 
 def just_a_function():
     print("It's runnig this section of code")
+    print(" Parten dir: ", os.getcwd())
 
-run_etl = PythonOperator(
+run_load = PythonOperator(
     task_id='pandas_load',
-    python_callable=just_a_function,
+    python_callable=load_excel,
     dag=dag,
 )
 
-run_etl
+run_save = PythonOperator(
+    task_id='pandas_sql',
+    python_callable=save2db,
+    dag=dag,
+)
+
+run_load >> run_save 
