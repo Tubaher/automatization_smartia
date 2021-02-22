@@ -3,6 +3,7 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 import os
+
 from load_data import load_excel
 from save_db import save2db
 
@@ -20,7 +21,7 @@ default_args = {
 dag = DAG(
     'pandas_dag',
     default_args=default_args,
-    description='DAG for formatting a csv',
+    description='ETL dag to process data files with different extensions',
     schedule_interval=None,
 )
 
@@ -40,4 +41,4 @@ run_save = PythonOperator(
     dag=dag,
 )
 
-run_load >> run_save 
+run_load >> run_save
