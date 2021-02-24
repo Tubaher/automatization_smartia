@@ -4,7 +4,7 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 import os
 
-from load_data import load_excel
+from load_data import load_data
 from save_db import save2db
 
 default_args = {
@@ -25,13 +25,9 @@ dag = DAG(
     schedule_interval=None,
 )
 
-def just_a_function():
-    print("It's runnig this section of code")
-    print(" Parten dir: ", os.getcwd())
-
 run_load = PythonOperator(
     task_id='pandas_load',
-    python_callable=load_excel,
+    python_callable=load_data,
     dag=dag,
 )
 

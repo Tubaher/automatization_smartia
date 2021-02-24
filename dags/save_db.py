@@ -1,30 +1,40 @@
 import pandas as pd
-import sqlalchemy
+import sqlalchemy as sa
 from os.path import join
 import psycopg2
+import config
+import pyodbc
+import utils 
+import os 
+import logging
 
-FILES_DIR = "stuff/tmp"
+def save2db(**kwargs):
 
-db_credential = {
-    "provider" : "postgresql+psycopg2",
-    "user" : "aztozcoembeuas",
-    "password" : "37db8b9f5f174d1a58e6f910c9f6114d12bef8320b37d977a5df166d805c5198",
-    "host" : "ec2-54-144-251-233.compute-1.amazonaws.com",
-    "database" : "dat9k5tq31vohf",
-}
+    # Loading metainfo
+    metainfo = utils.load_metainfo(kwargs)
 
-def save2db():
-    # Loading a .csv  without "" 
-    path_file = join(FILES_DIR, "excel_sample.csv")
+    if metainfo is not None:
 
-    df = pd.read_csv(path_file) #,
-                    #engine = 'python')
-    #df.to_cvs("stuff/tmp/excel_sample_tmp.csv")
+        # Load the engine of our database
+        # engine = sa.create_engine("{}://{}:{}@{}/{}".format(*config.db_credential.values()))
+        engine = sa.create_engine("{}://{}:{}@{}:{}/{}?driver={}".format(*config.db_credential_sqlserver.values()))
+    
+        # Loading the tmp .csv from dir
+        dir_tmp_files = join( config.TMP_FILES_DIR, metainfo["cliente"])
 
-    engine = sqlalchemy.create_engine("{}://{}:{}@{}/{}".format(*db_credential.values()))
+        for f in os.listdir(dir_tmp_files) :
+            filename, filename_ext = os.path.splitext(f)
 
-    print("Saving into database")
-    print(df.head())
-    # write the DataFrame to a table in the sql database
-    df.to_sql("usuarios", engine, if_exists = 'append', index = False)
+            table_name, _ = filename.split("_")
+
+            if filename_ext == ".csv":
+                path_file = join(dir_tmp_files, f)
+
+                # Read the csv
+                df = pd.read_csv(path_file)
+
+                # Saved the result in the database
+                logging.info("Saving into table {}".format(table_name))
+                df.to_sql(table_name, engine, if_exists = 'append', index = False)
+
 

@@ -1,0 +1,51 @@
+{
+    "tipo": "xlsx",
+    "ruta_archivos": "stuff/input_files/BANCO_AGRICOLA",
+    "cliente": "BANCO_AGRICOLA",
+    "hoja": "Hoja 1",
+    "primera_fila": 0,
+    "columnas": "A:I",
+    "encabezado": false,
+
+    "tablas_salida" : ["usuarios"] ,
+
+    "usuarios" : [
+        {
+            "nombre_salida": "id",
+            "nombre_entradas": [0]
+        },
+        {
+            "nombre_salida": "nombres",
+            "nombre_entradas": [1]
+        },
+        {
+            "nombre_salida": "apellidos",
+            "nombre_entradas": [2]
+        },
+        {
+            "nombre_salida": "genero",
+            "nombre_entradas": [3]
+        },
+        {
+            "nombre_salida": "condicion",
+            "nombre_entradas": [4]
+        },
+        {
+            "nombre_salida": "equipo",
+            "nombre_entradas": [5]
+        },
+        {
+            "nombre_salida": "test_operation",
+            "nombre_entradas": [0, 5, 6],
+            "operaciones": ["+", "-"]
+        },
+        {
+            "nombre_salida": "trabajo",
+            "nombre_entradas": [7]
+        },
+        {
+            "nombre_salida": "lugar",
+            "nombre_entradas": [8]
+        }
+    ]
+}
