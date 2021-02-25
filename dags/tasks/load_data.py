@@ -5,11 +5,14 @@ import config
 import logging
 from os.path import join
 from glob import glob
-from file_parser.file_parser import FileParser
 import utils 
 from datetime import datetime
 
 def load_data(**kwargs):
+    """
+    This function uses a metainfo.json configuration to load
+    files and store in temporal .csv according to each table information
+    """
 
     # Loading metainfo
     metainfo = utils.load_metainfo(kwargs)

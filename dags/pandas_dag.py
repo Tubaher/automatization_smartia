@@ -4,8 +4,9 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 import os
 
-from load_data import load_data
-from save_db import save2db
+#Import the important tasks functions
+from tasks.load_data import load_data
+from tasks.save_db import save2db
 
 default_args = {
     'owner': 'airflow',

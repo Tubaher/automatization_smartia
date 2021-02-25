@@ -92,18 +92,16 @@ class FileParser:
             exec(str_exec)
 
             # ANOTHER way to process the operations between columns
-            # operations = {
+            # OPERATIONS = {
             #     "+" : lambda a, b: a + b,
             #     "-" : lambda a, b: a - b
             # }
-            # m_column["operaciones"] = ["+" ,"-"]
-            # m_column["nombre_entradas"] = [0, 3, 5]
             
             # auxiliar_operator = table_df[ m_column["nombre_entradas"][0] ]
 
             # for idx, op in enumerate(m_column["operaciones"]):
             #     column1 = auxiliar_operator
             #     column2 = table_df[ m_column["nombre_entradas"][idx + 1] ]
-            #     auxiliar_operator = operations[op](column1, column2)
+            #     auxiliar_operator = OPERATIONS[op](column1, column2)
             
             # table_df[m_column["nombre_salida"]] = auxiliar_operator
