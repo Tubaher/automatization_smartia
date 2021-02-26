@@ -1,6 +1,8 @@
 {
     "tipo": "xlsx",
+    "file_extension" : "xlsx",
     "ruta_archivos": "stuff/input_files/BANCO_AGRICOLA",
+    "modo_lectura": "full_dir",
     "cliente": "BANCO_AGRICOLA",
     "hoja": "Hoja 1",
     "primera_fila": 0,
@@ -16,7 +18,7 @@
         },
         {
             "nombre_salida": "nombres",
-            "nombre_entradas": [1]
+            "default": "Pepito"
         },
         {
             "nombre_salida": "apellidos",

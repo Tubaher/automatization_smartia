@@ -25,3 +25,9 @@ TABLES_FIELDS = {
     "usuarios" : ["id", "nombres", "apellidos", "genero", "condicion", 
                     "equipo", "cedula", "trabajo", "lugar" ]
 }
+
+# Define the operations between columns
+OPERATIONS = {
+    "+" : lambda col1, col2: col1 + col2,
+    "-" : lambda col1, col2: col1 - col2
+}

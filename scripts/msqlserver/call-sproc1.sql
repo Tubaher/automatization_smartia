@@ -1,0 +1,1 @@
+EXEC [dbo].[deleteUserById] @user_id = 2123

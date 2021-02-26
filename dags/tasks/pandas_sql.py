@@ -34,7 +34,14 @@ def save2db(**kwargs):
                 df = pd.read_csv(path_file)
 
                 # Saved the result in the database
-                logging.info("Saving into table {}".format(table_name))
-                df.to_sql(table_name, engine, if_exists = 'append', index = False)
+                logging.info("Saving {} into table {}".format(f, table_name))
+                try:
+                    df.to_sql(table_name, engine, if_exists = 'append', index = False)
+                except Exception as e:
+                    logging.warning("The file {} could not be saved into table {}".format(f, table_name))
+                else:
+                    #if not error occurs remove the temporal file
+                    os.remove(path_file)
 
-
+            else:
+                logging.warning("The file {} extension is not .csv".format(f))

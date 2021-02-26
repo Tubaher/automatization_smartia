@@ -2,6 +2,8 @@ import logging
 import json
 from file_parser.excel_parser import ExcelParser
 from file_parser.csv_parser import CSVParser
+import os
+from datetime import datetime, date
 
 def load_metainfo(kwargs):
 
@@ -52,3 +54,28 @@ def WrapperFileParser(metainfo):
         logging.error("Type format not defined")
 
     return parser_f
+
+def get_date_index(files, type_s = "ultimo"):
+    dates = []
+    for f in files:
+        file_name = os.path.splitext(f)[0]
+        date_string = '/'.join(file_name.split("_")[1::])
+        parsed_date = datetime.strptime(date_string, "%Y/%m/%d")
+        dates.append(parsed_date)
+    
+    if type_s == "ultimo":
+        index = dates.index(max(dates))
+    elif type_s == "hoy":
+        index = dates.index(date.today())
+    
+    return index
+
+def load_files_names(metainfo):
+    files = os.listdir(metainfo["ruta_archivos"])
+    
+    if metainfo['modo_lectura'] =='ultimo':
+        files = files[get_date_index(files, "ultimo")]
+    elif metainfo['modo_lectura'] =='hoy':
+        files = files[get_date_index(files, "hoy")] 
+
+    return files

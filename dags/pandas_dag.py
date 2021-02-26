@@ -3,10 +3,11 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 import os
+from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
 
 #Import the important tasks functions
-from tasks.load_data import load_data
-from tasks.save_db import save2db
+from tasks.pandas_load import load_data
+from tasks.pandas_sql import save2db
 
 default_args = {
     'owner': 'airflow',
@@ -23,6 +24,7 @@ dag = DAG(
     'pandas_dag',
     default_args=default_args,
     description='ETL dag to process data files with different extensions',
+    template_searchpath='scripts/msqlserver',
     schedule_interval=None,
 )
 
@@ -38,4 +40,11 @@ run_save = PythonOperator(
     dag=dag,
 )
 
-run_load >> run_save
+opr_call_sproc = MsSqlOperator(
+    task_id='call_sproc',
+    mssql_conn_id='mssql_smartia',
+    sql='call-sproc1.sql',
+    dag=dag,
+)
+
+run_load >> run_save >> opr_call_sproc
