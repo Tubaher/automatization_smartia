@@ -20,10 +20,20 @@ db_credential_sqlserver = {
     "driver" : "/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.7.so.1.1"
 }
 
-# Tablas estandar que existen en la base de datos
+# Standard tables which are in the database 
+# The datatypes are defined according one of the following types
+# int32, int64, float32, float64, string, boolean, object
+# Columns with mixed types are stored with the object dtype
 TABLES_FIELDS = {
-    "usuarios" : ["id", "nombres", "apellidos", "genero", "condicion", 
-                    "equipo", "cedula", "trabajo", "lugar" ]
+    "usuarios" : [ {"id"        : "int64" }, 
+                   {"nombres"   : "string" }, 
+                   {"apellidos" : "string" }, 
+                   {"genero"    : "string" },
+                   {"condicion" : "string" },
+                   {"equipo"    : "int64"  }, 
+                   {"cedula"    : "int64"  }, 
+                   {"trabajo"   : "string" },
+                   {"lugar"     : "string" }]
 }
 
 # Define the operations between columns

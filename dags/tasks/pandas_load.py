@@ -20,6 +20,9 @@ def load_data(**kwargs):
 
     if metainfo is not None:
 
+        # Validation of metainfo
+        utils.validate_metainfo(metainfo)
+
         # Define a parser to the current files format
         fileParser = utils.WrapperFileParser(metainfo)
         
@@ -33,6 +36,8 @@ def load_data(**kwargs):
 
         # get the files according to what we expect: lastest file, a list of files in a folder, etc.
         files = utils.load_files_names(metainfo)
+
+        logging.info("FILES: {}".format(files))
         
         for f in files:
             filename, filename_ext = os.path.splitext(f)
@@ -72,7 +77,5 @@ def load_data(**kwargs):
                 else:
                     logging.warning("Problems saving temporal files. Then, the file {} was not moved to processed".format(f))
 
-            elif (f == "processed"):
-                continue
             else:
                 logging.warning("The file {} extension does not match with metadata used extension".format(f))

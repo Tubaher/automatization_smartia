@@ -109,19 +109,22 @@ class FileParser:
             
             table_df[m_column["nombre_salida"]] = auxiliar_operator
 
-            # ANOTHER way to process the operations between columns            
-            # str_exec = "table_df[\"{}\"] = ".format(m_column["nombre_salida"])
+    def __generate_operations_columns_str_exec(self, table_df, full_df, operations_columns):
 
-            # inter_layer = m_column["nombre_entradas"] + m_column["operaciones"]
-            # inter_layer[::2] = m_column["nombre_entradas"]
-            # inter_layer[1::2] = m_column["operaciones"]
+        # ANOTHER way to process the operations between columns            
+        for m_column in operations_columns:
+            str_exec = "table_df[\"{}\"] = ".format(m_column["nombre_salida"])
 
-            # for idx, value in enumerate(inter_layer):
-            #     if idx % 2 == 0:
-            #         str_exec += "full_df[{}]".format(value) + " "
-            #     else:
-            #         str_exec += str(value) + " "
+            inter_layer = m_column["nombre_entradas"] + m_column["operaciones"]
+            inter_layer[::2] = m_column["nombre_entradas"]
+            inter_layer[1::2] = m_column["operaciones"]
+
+            for idx, value in enumerate(inter_layer):
+                if idx % 2 == 0:
+                    str_exec += "full_df[{}]".format(value) + " "
+                else:
+                    str_exec += str(value) + " "
                     
             
-            # logging.info("STR EXEC: {}".format(str_exec))
-            # exec(str_exec)
+            logging.info("STR EXEC: {}".format(str_exec))
+            exec(str_exec)

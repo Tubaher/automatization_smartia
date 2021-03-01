@@ -4,6 +4,7 @@ from file_parser.excel_parser import ExcelParser
 from file_parser.csv_parser import CSVParser
 import os
 from datetime import datetime, date
+import sys
 
 def load_metainfo(kwargs):
 
@@ -55,27 +56,45 @@ def WrapperFileParser(metainfo):
 
     return parser_f
 
-def get_date_index(files, type_s = "ultimo"):
+def get_date_index(files, type_s = "ultimo", date_format = "%Y/%m/%d"):
     dates = []
-    for f in files:
+    for f in files:       
         file_name = os.path.splitext(f)[0]
+        logging.info("file_name {}".format(file_name))
         date_string = '/'.join(file_name.split("_")[1::])
-        parsed_date = datetime.strptime(date_string, "%Y/%m/%d")
+        logging.info("Date_string {}".format(date_string))
+        parsed_date = datetime.strptime(date_string, date_format)
         dates.append(parsed_date)
-    
+
     if type_s == "ultimo":
         index = dates.index(max(dates))
     elif type_s == "hoy":
-        index = dates.index(date.today())
+        dt = datetime.combine(date.today(), datetime.min.time())
+        try:
+            index = dates.index(dt)
+        except:
+            logging.error("Error there are not files with the today date")
+            sys.exit(1)
     
+    logging.info("Index of file {}".format(index))
+
     return index
 
 def load_files_names(metainfo):
     files = os.listdir(metainfo["ruta_archivos"])
+    files.remove('processed')
     
     if metainfo['modo_lectura'] =='ultimo':
-        files = files[get_date_index(files, "ultimo")]
+        files = [files[get_date_index(files, "ultimo")]]
     elif metainfo['modo_lectura'] =='hoy':
-        files = files[get_date_index(files, "hoy")] 
+        files = [files[get_date_index(files, "hoy")]]
 
     return files
+
+def validate_metainfo(metainfo):
+    #TODO: print errors when some attributes are missing in the metainfo.json
+    # accoding to each type, because each type has different attributes
+
+    #also validate if the fields of the output table are correct, check if the names
+    #are correct according to the variable TABLES_FIELDS in config
+    print("VALIDATE HERE")
