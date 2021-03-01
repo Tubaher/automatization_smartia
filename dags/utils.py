@@ -2,6 +2,7 @@ import logging
 import json
 from file_parser.excel_parser import ExcelParser
 from file_parser.csv_parser import CSVParser
+from file_parser.fijo_parser import FixedWidthParser
 import os
 from datetime import datetime, date
 import sys
@@ -51,6 +52,8 @@ def WrapperFileParser(metainfo):
         parser_f = ExcelParser(metainfo)
     elif type_format == "csv":
         parser_f = CSVParser(metainfo)
+    elif type_format == "ancho_fijo":
+        parser_f = FixedWidthParser(metainfo)
     else:
         logging.error("Type format not defined")
 

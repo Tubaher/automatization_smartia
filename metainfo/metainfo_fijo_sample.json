@@ -1,5 +1,5 @@
 {
-    "tipo": "fijo",
+    "tipo": "ancho_fijo",
     "file_extension" : "raw",
     "ruta_archivos": "stuff/input_files/BDGVO",
     "modo_lectura": "all_dir",
