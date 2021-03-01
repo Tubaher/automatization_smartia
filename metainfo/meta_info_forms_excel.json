@@ -1,55 +1,22 @@
 {
     "tipo": "xlsx",
     "file_extension" : "xlsx",
-    "ruta_archivos": "stuff/input_files/BANCO_AGRICOLA",
+    "ruta_archivos": "stuff/input_files/Claro",
     "modo_lectura": "hoy",
-    "formato-fecha" : "_%Y_%m_%d",
-    "cliente": "BANCO_AGRICOLA",
-    "hoja": "Hoja 1",
-    "primera_fila": 0,
-    "columnas": "A:I",
-    "encabezado": false,
+    "formato-fecha" : "%Y%m%d",
+    "cliente": "Claro",
+    "hoja": "Creacion Campaña SMS",
 
-    "tablas_salida" : ["usuarios"] ,
+    "tablas_salida" : ["campana"] ,
 
     "usuarios" : [
         {
-            "nombre_salida": "id",
-            "nombre_entradas": [0]
+            "columna_salida": "nombre_campana",
+            "nombre_entrada": [5,"C"]
         },
         {
-            "nombre_salida": "nombres",
-            "default": "Pepito"
-        },
-        {
-            "nombre_salida": "apellidos",
-            "nombre_entradas": [1, 2],
-            "operaciones" : ["+"]
-        },
-        {
-            "nombre_salida": "genero",
-            "nombre_entradas": [3]
-        },
-        {
-            "nombre_salida": "condicion",
-            "nombre_entradas": [4]
-        },
-        {
-            "nombre_salida": "equipo",
-            "nombre_entradas": [5]
-        },
-        {
-            "nombre_salida": "test_operation",
-            "nombre_entradas": [0, 5, 6],
-            "operaciones": ["+", "-"]
-        },
-        {
-            "nombre_salida": "trabajo",
-            "nombre_entradas": [7]
-        },
-        {
-            "nombre_salida": "lugar",
-            "nombre_entradas": [8]
+            "columna_salida": "id",
+            "nombre_entrada": [14, "C"]
         }
     ]
 }
