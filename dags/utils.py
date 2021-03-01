@@ -56,12 +56,18 @@ def WrapperFileParser(metainfo):
 
     return parser_f
 
-def get_date_index(files, type_s = "ultimo", date_format = "%Y/%m/%d"):
+def get_date_index(files, metainfo):
     dates = []
+
+    type_s = metainfo['modo_lectura']
+    date_format = metainfo['formato_fecha']
+    separator_file_name = date_format[0]
+    separator_date = date_format[3]
+    
     for f in files:       
         file_name = os.path.splitext(f)[0]
         logging.info("file_name {}".format(file_name))
-        date_string = '/'.join(file_name.split("_")[1::])
+        date_string = separator_date.join(file_name.split(separator_file_name)[1::])
         logging.info("Date_string {}".format(date_string))
         parsed_date = datetime.strptime(date_string, date_format)
         dates.append(parsed_date)
@@ -85,9 +91,9 @@ def load_files_names(metainfo):
     files.remove('processed')
     
     if metainfo['modo_lectura'] =='ultimo':
-        files = [files[get_date_index(files, "ultimo")]]
+        files = [files[get_date_index(files, metainfo)]]
     elif metainfo['modo_lectura'] =='hoy':
-        files = [files[get_date_index(files, "hoy")]]
+        files = [files[get_date_index(files, metainfo)]]
 
     return files
 

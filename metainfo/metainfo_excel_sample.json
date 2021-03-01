@@ -3,7 +3,7 @@
     "file_extension" : "xlsx",
     "ruta_archivos": "stuff/input_files/BANCO_AGRICOLA",
     "modo_lectura": "hoy",
-    "formato-fecha" : "_%Y_%m_%d",
+    "formato_fecha" : "_%Y_%m_%d",
     "cliente": "BANCO_AGRICOLA",
     "hoja": "Hoja 1",
     "primera_fila": 0,

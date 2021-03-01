@@ -62,13 +62,20 @@ def load_data(**kwargs):
                     # Name of the temporal file .csv
                     output_file_name = table_name + "_"+ datetime.now().strftime('%d-%m-%Y-%H-%M') + ".csv"
                     
+                    # Try to cast the columns according to each corresponding data type
+                    try:
+                        df.astype(config.TABLES_FIELDS[table_name]).dtypes
+                    except:
+                        logging.warning("The temporal df {} could not be casted to the correct datatype".format(output_file_name))
+                    
+
                     tmp_file_dir = join(tmp_folder_dir, output_file_name)
                     
                     try:
                         df.to_csv( tmp_file_dir , index = False)
-                    except Exception as e:
+                    except:
                         error = True
-                        logging.warning(e)
+                        logging.warning("The program could not save the temporal file {}".format(tmp_file_dir))
                 
                 # If the temporal file csv is stored the moved the already processed file
                 if error == False:
