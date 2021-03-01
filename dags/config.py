@@ -25,15 +25,22 @@ db_credential_sqlserver = {
 # int32, int64, float32, float64, string, boolean, object
 # Columns with mixed types are stored with the object dtype
 TABLES_FIELDS = {
-    "usuarios" : [ {"id"        : "int64" }, 
-                   {"nombres"   : "string" }, 
-                   {"apellidos" : "string" }, 
-                   {"genero"    : "string" },
-                   {"condicion" : "string" },
-                   {"equipo"    : "int64"  }, 
-                   {"cedula"    : "int64"  }, 
-                   {"trabajo"   : "string" },
-                   {"lugar"     : "string" }]
+    "usuarios" : { "id"        : "int64" , 
+                   "nombres"   : "string" , 
+                   "apellidos" : "string" , 
+                   "genero"    : "string" ,
+                   "condicion" : "string" ,
+                   "equipo"    : "int64"  , 
+                   "cedula"    : "int64"  , 
+                   "trabajo"   : "string" ,
+                   "lugar"     : "string" },
+                   
+    "personas" : {  "rut"     : "int64",
+                    "nombre"  : "string",
+                    "supervisor" : "string",
+                    "prioridad" : "int64",
+                    "sum_saldos" : "float64"
+                }            
 }
 
 # Define the operations between columns

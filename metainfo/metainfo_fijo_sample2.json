@@ -1,0 +1,67 @@
+{
+    "tipo": "fijo",
+    "file_extension" : "raw",
+    "ruta_archivos": "stuff/input_files/BDGVO",
+    "modo_lectura": "all_dir",
+    "formato_fecha" : "_%Y_%m_%d",
+    "cliente": "BDGVO",
+    "primera_fila": 0,
+    "encabezado": false,
+
+    "info_columnas" : {
+        "indice_inicial" : 1,
+        "estilo_intervalos" : "close-open",
+        "columnas" : [
+            {
+                "nombre_columna" : "Campo001",
+                "intervalo" : [1,2]
+            },
+            {
+                "nombre_columna" : "Campo004",
+                "intervalo" : [25,65]
+            },
+            {
+                "nombre_columna" : "Campo006",
+                "intervalo" : [85,105]
+            },
+            {
+                "nombre_columna" : "Campo007",
+                "intervalo" : [105,118]
+            },
+            {
+                "nombre_columna" : "Campo009",
+                "intervalo" : [133,148]
+            },
+            {
+                "nombre_columna" : "Campo010",
+                "intervalo" : [148,163]
+            }
+        ]
+    }, 
+
+    "tablas_salida" : ["personas"] ,
+
+    "personas" : [
+        {
+            "nombre_salida": "rut",
+            "nombre_entradas": ["Campo001"]
+        },
+        {
+            "nombre_salida": "nombre",
+            "default": "Campo004"
+        },
+        {
+            "nombre_salida": "supervisor",
+            "nombre_entradas": ["Campo006"]
+        },
+        {
+            "nombre_salida": "prioridad",
+            "nombre_entradas": ["Campo007"]
+        },
+        {
+            "nombre_salida": "sum_saldos",
+            "nombre_entradas": ["Campo009", "Campo010"],
+            "operaciones": ["+"]
+        }
+    ]
+}
