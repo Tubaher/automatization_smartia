@@ -9,13 +9,13 @@
 
     "tablas_salida" : ["campana"] ,
 
-    "usuarios" : [
+    "campana" : [
         {
-            "columna_salida": "nombre_campana",
+            "nombre_salida": "nombre_campana",
             "nombre_entrada": [5,"C"]
         },
         {
-            "columna_salida": "id",
+            "nombre_salida": "id",
             "nombre_entrada": [14, "C"]
         }
     ]
