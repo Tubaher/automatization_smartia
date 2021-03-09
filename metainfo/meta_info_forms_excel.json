@@ -1,22 +1,70 @@
 {
-    "tipo": "xlsx",
+    "tipo": "xlsx_form",
     "file_extension" : "xlsx",
     "ruta_archivos": "stuff/input_files/Claro",
-    "modo_lectura": "hoy",
-    "formato-fecha" : "%Y%m%d",
+    "modo_lectura": "all_dir",
+    "formato_fecha" : "_%Y_%m_%d",
     "cliente": "Claro",
-    "hoja": "Creacion Campaña SMS",
-
-    "tablas_salida" : ["campana"] ,
-
-    "campana" : [
-        {
-            "nombre_salida": "nombre_campana",
-            "nombre_entrada": [5,"C"]
-        },
-        {
-            "nombre_salida": "id",
-            "nombre_entrada": [14, "C"]
+    "hojas_formulario": ["Creacion Campaña SMS"],
+    "hojas_tabla" : [
+        {   "nombre_hoja" : "PROGRAMACION CAMPAÑA SMS",
+            "primera_fila" : 2,
+            "columnas_archivo": "B:H",
+            "encabezado": true
         }
-    ]
+    ],
+
+    "tablas_salida" : ["campana","programacion"] ,
+
+    "campana" : {
+        "hoja": "Creacion Campaña SMS",
+        "modo" : "formulario",
+
+        "columnas" : [
+            {
+                "nombre_salida": "nombre_campana",
+                "nombre_entrada": [5,"C"]
+            },
+            {
+                "nombre_salida": "id",
+                "nombre_entrada": [14, "C"]
+            }
+            
+        ]
+    },
+
+    "programacion" : {
+        "hoja": "PROGRAMACION CAMPAÑA SMS",
+        "modo" : "tabla", 
+        "columnas" : [
+            {
+                "nombre_entrada": "Fecha",
+                "nombre_salida": "fecha"
+            },
+            {
+                "nombre_entrada": "cliente",
+                "nombre_salida": "cliente"
+            },
+            {
+                "nombre_entrada": "Producto",
+                "nombre_salida": "producto"
+            },
+            {
+                "nombre_entrada": "Mensaje",
+                "nombre_salida": "mensaje"
+            },
+            {
+                "nombre_entrada": "ID",
+                "nombre_salida": "id"
+            },
+            {
+                "nombre_entrada": "Segmento (base)",
+                "nombre_salida": "segmento"
+            },
+            {
+                "nombre_entrada": "Registros (envios)",
+                "nombre_salida": "registros"
+            }
+        ]
+    }
 }

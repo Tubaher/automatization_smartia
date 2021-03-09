@@ -3,6 +3,7 @@ import json
 from file_parser.excel_parser import ExcelParser
 from file_parser.csv_parser import CSVParser
 from file_parser.fijo_parser import FixedWidthParser
+from form_parser.excel_form_parser import ExcelFormParser
 import os
 from datetime import datetime, date
 import sys
@@ -54,6 +55,8 @@ def WrapperFileParser(metainfo):
         parser_f = CSVParser(metainfo)
     elif type_format == "ancho_fijo":
         parser_f = FixedWidthParser(metainfo)
+    elif type_format == "xlsx_form":
+        parser_f = ExcelFormParser(metainfo)
     else:
         logging.error("Type format not defined")
 
@@ -64,15 +67,21 @@ def get_date_index(files, metainfo):
 
     type_s = metainfo['modo_lectura']
     date_format = metainfo['formato_fecha']
+
+    logging.info('Date Format: {}'.format(date_format))
     separator_file_name = date_format[0]
     separator_date = date_format[3]
-    
+    num_attributes_format = date_format.count('%')
+    print("NUM_ATTRIBUTE_FORMAT: {}".format(num_attributes_format))
     for f in files:       
         file_name = os.path.splitext(f)[0]
         logging.info("file_name {}".format(file_name))
-        date_string = separator_date.join(file_name.split(separator_file_name)[1::])
+        tail_list = file_name.split(separator_date)[-num_attributes_format:]
+        logging.info("TAIL LIST {}".format(tail_list))
+        tail_list[0] = tail_list[0].split(separator_file_name)[-1]
+        date_string = separator_date.join(tail_list)
         logging.info("Date_string {}".format(date_string))
-        parsed_date = datetime.strptime(date_string, date_format)
+        parsed_date = datetime.strptime(date_string, date_format[1:])
         dates.append(parsed_date)
 
     if type_s == "ultimo":

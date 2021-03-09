@@ -10,35 +10,14 @@
     "separador": "",
 
     "info_columnas" : {
-        "read_from" : "metainfo_file",
-        "indice_inicial" : 1,
-        "estilo_intervalos" : "close-open",
-        "columnas" : [
-            {
-                "nombre_columna" : "Campo003",
-                "intervalo" : [10,25]
-            },
-            {
-                "nombre_columna" : "Campo004",
-                "intervalo" : [25,65]
-            },
-            {
-                "nombre_columna" : "Campo006",
-                "intervalo" : [85,105]
-            },
-            {
-                "nombre_columna" : "Campo007",
-                "intervalo" : [105,118]
-            },
-            {
-                "nombre_columna" : "Campo009",
-                "intervalo" : [133,148]
-            },
-            {
-                "nombre_columna" : "Campo010",
-                "intervalo" : [148,163]
-            }
-        ]
+        "read_from" : "external_file",
+        "dir" : "metainfo/DIGEVO_Estructura Interfazces.xlsx",
+        "hoja" : "RAW",
+        "primera_fila" : 13,
+        "loc_nombres_campo" : "C",
+        "loc_intervalos" : "G:H",
+        "estilo_intervalos" : "close-close",
+        "indice_inicial" : 1
     }, 
 
     "tablas_salida" : ["personas"] ,
@@ -50,7 +29,7 @@
         },
         {
             "nombre_salida": "nombre",
-            "nombre_entradas": ["Campo004"]
+            "default": "Campo004"
         },
         {
             "nombre_salida": "supervisor",

@@ -1,11 +1,11 @@
 import pandas as pd
 import json
 import os
-import config
+import utils.config as config
 import logging
 from os.path import join
 from glob import glob
-import utils 
+import utils.utils as utils
 from datetime import datetime
 import shutil
 

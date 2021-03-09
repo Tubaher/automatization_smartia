@@ -1,14 +1,26 @@
 {
-    "tipo": "xlsx_form",
-    "file_extension" : "xlsx",
-    "ruta_archivos": "stuff/input_files/BANCO_AGRICOLA",
-    "modo_lectura": "hoy",
+    "tipo": "csv",
+    "file_extension" : "csv",
+    "ruta_archivos": "stuff/input_files/CSV_EXAMPLES",
+    "modo_lectura": "ultimo",
     "formato_fecha" : "_%Y_%m_%d",
-    "cliente": "BANCO_AGRICOLA",
-    "hoja": "Hoja 1",
+    "cliente": "CSV_EXAMPLES",
     "primera_fila": 0,
-    "columnas": "A:I",
     "encabezado": false,
+    "separador": ";",
+
+    "converters" : [
+        {
+            "columnas_entrada" : "all",
+            "operation" : "remove",
+            "values" : ["\""]
+        },
+        {
+            "columnas_entrada" : [5, 6],
+            "operation" : "float_sep",
+            "values" : [","]
+        }
+    ],
 
     "tablas_salida" : ["usuarios"] ,
 

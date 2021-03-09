@@ -6,8 +6,8 @@ import os
 from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
 
 #Import the important tasks functions
-from tasks.pandas_load import load_data
-from tasks.pandas_sql import save2db
+from tasks.load_form import load_data
+
 
 default_args = {
     'owner': 'airflow',
@@ -21,7 +21,7 @@ default_args = {
 }
 
 dag = DAG(
-    'form_dags',
+    'forms_dag',
     default_args=default_args,
     description='ETL dag para formas de clientes',
     # template_searchpath='scripts/msqlserver',
@@ -29,22 +29,10 @@ dag = DAG(
 )
 
 run_load = PythonOperator(
-    task_id='pandas_load',
+    task_id='load_form',
     python_callable=load_data,
     dag=dag,
 )
 
-run_save = PythonOperator(
-    task_id='pandas_sql',
-    python_callable=save2db,
-    dag=dag,
-)
 
-opr_call_sproc = MsSqlOperator(
-    task_id='call_sproc',
-    mssql_conn_id='mssql_smartia',
-    sql='call-sproc1.sql',
-    dag=dag,
-)
-
-run_load >> run_save >> opr_call_sproc
+run_load 

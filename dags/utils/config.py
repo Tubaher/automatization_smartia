@@ -35,16 +35,34 @@ TABLES_FIELDS = {
                    "trabajo"   : "string" ,
                    "lugar"     : "string" },
                    
-    "personas" : {  "rut"     : "int64",
+    "personas" : {  "rut"     : "string",
                     "nombre"  : "string",
                     "supervisor" : "string",
                     "prioridad" : "int64",
                     "sum_saldos" : "float64"
-                }            
+                },
+    "campana"   : { "nombre_campana" : "string",
+                    "id" : "string"
+                },
+    "programacion": { "fecha" : "string",
+                      "cliente": "string",
+                      "producto": "string",
+                      "mensaje": "string",
+                      "segmento": "string",
+                      "registros": "string"
+                    }          
 }
 
 # Define the operations between columns
 OPERATIONS = {
     "+" : lambda col1, col2: col1 + col2,
     "-" : lambda col1, col2: col1 - col2
+}
+
+# Define some converter operation to clean corrupted columns
+CONVERTER_OPERATIONS = {
+    "remove"    : lambda val, record: record.replace(val,''),
+    "replace"   : lambda val1, val2, record: record.replace(val1,val2),
+    "float_sep" : lambda val, record: float(record.replace(val, '.')),
+    "strip"     : lambda record : record.strip()
 }

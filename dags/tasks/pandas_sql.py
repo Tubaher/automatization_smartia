@@ -2,9 +2,9 @@ import pandas as pd
 import sqlalchemy as sa
 from os.path import join
 import psycopg2
-import config
+import utils.config as config
 import pyodbc
-import utils 
+import utils.utils as utils
 import os 
 import logging
 

@@ -1,6 +1,6 @@
 import pandas as pd
 import logging
-import config
+import utils.config as config
 
 class FileParser:
     def __init__(self, metainfo):
@@ -51,6 +51,7 @@ class FileParser:
                 else:
                     same_columns.append(meta_column)
 
+            logging.info("FULL_DF AFTER GENERATE SAME COLS : \n {} \n {}".format(full_df, full_df.dtypes))
             # generate a df with some filter same columns of the full_df
             table_df = self.__generate_same_columns(full_df, same_columns)
 
@@ -58,10 +59,11 @@ class FileParser:
             self.__generate_default_columns(table_df, default_columns)
 
             logging.info("TABLE DF AFTER OPERATIONS : \n {} \n {}".format(table_df, table_df.dtypes))
+            logging.info("FULL_DF AFTER OPERATIONS : \n {} \n {}".format(full_df, full_df.dtypes))
 
             # generate columns from operation between columns, 
             # adding new columns to the right of the table_df
-            self.__generate_operations_columns(table_df, full_df, operations_columns)
+            self.__generate_operations_columns_str_exec(table_df, full_df, operations_columns)
 
             logging.info("TABLE DF BEFORE OPERATIONS: \n {}".format(table_df))
 
