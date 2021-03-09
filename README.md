@@ -67,7 +67,7 @@ Now we have to connect from WSL2 to the SQL Server to use Airflow and the tasks 
 
 To test a task separately, we can use the bash files [execute_task_forms.sh](execute_task_forms.sh) or [execute_task_tables.sh](execute_task_tables.sh) in the following way:
 
-```
+```bash 
     bash execute_task_tables.sh <task_name> <metainfo_file.json>
 ```
 
@@ -75,7 +75,7 @@ To test a task separately, we can use the bash files [execute_task_forms.sh](exe
 
 To execute the complete dag, we can use the bash file [execute_dag.sh](execute_dag.sh) in the following way:
 
-```
+```bash
     bash execute_dag <dag_name> <dag_id_int> <metainfo_file.json>
 ```
 
@@ -90,7 +90,7 @@ After creating the new class, you need to call it in [utils.py](dags/utils/utils
 
 In some cases, the input files could content corrupted information, such as: extra doble quotation marks, blank spaces, incorrect float number separator, among others. For this reason, we create a way to deal with these problems, called `converters`. The converters are special functions that are executed per column to correct the imperfections in data. Currently, we developed four functions which can be configurated in the `metainfo_file.json`. The definition of each function can be found in [config.py](dags/utils/config.py) within the variable:
 
-```
+```python
 CONVERTER_OPERATIONS = {
     "remove"    : lambda val, record: record.replace(val,''),
     "replace"   : lambda val1, val2, record: record.replace(val1,val2),
