@@ -12,6 +12,15 @@ In the following, we detail the information that must contain the metainfo files
 
 The general attributes of all the metainfo files are the following:
 
+| Attribute      | Description                           | Options                                                                                                                                                                        |
+|:----------------|:---------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| tipo           | Parser Type to apply                  | csv, xlsx, ancho_fijo, xlsx_form                                                                                                                                               |
+| file_extension | Extension of input files              | csv, xlsx, txt, raw, etc                                                                                                                                                       |
+| ruta_archivos  | Directory to the input files          | stuff/input_files                                                                                                                                                              |
+| modo_lectura   | Read mode to process the input files. | all_dir: process all the files in the 'ruta_archivos' dir ultimo:  process the last file in the 'ruta_archivos' dir hoy:     process the today file in the 'ruta_archivos' dir |
+| formato_fecha  | Define the date format of input files | e.g: _%Y_%m_%d                                                                                                                                                                 |
+| client         | Client name of the input file         | e.g: BANCO_AGRICOLA                                                                                                                                                            |
+
 ```json
     {
     "tipo": "csv",
