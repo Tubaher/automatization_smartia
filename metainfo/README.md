@@ -12,7 +12,7 @@ In the following, we detail the information that must contain the metainfo files
 
 The general attributes of all the metainfo files are the following:
 
-```JSON
+```json
     {
     "tipo": "csv",
     "file_extension" : "csv",
