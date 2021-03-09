@@ -6,7 +6,7 @@ import os
 from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
 
 #Import the important tasks functions
-from tasks.pandas_load import load_data
+from tasks.load_table import load_data
 from tasks.pandas_sql import save2db
 
 default_args = {

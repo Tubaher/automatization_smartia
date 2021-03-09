@@ -1,9 +1,9 @@
 import logging
 import json
-from file_parser.excel_parser import ExcelParser
-from file_parser.csv_parser import CSVParser
-from file_parser.fijo_parser import FixedWidthParser
-from form_parser.excel_form_parser import ExcelFormParser
+from table_parser.excel_parser import ExcelParser
+from table_parser.csv_parser import CSVParser
+from table_parser.fijo_parser import FixedWidthParser
+from table_parser.excel_form_parser import ExcelFormParser
 import os
 from datetime import datetime, date
 import sys

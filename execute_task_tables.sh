@@ -3,4 +3,4 @@
 
 dict_params="{\"cfg_file\":\"${2}\"}"
 
-airflow tasks test pandas_dag $1 2021-02-22 -t $dict_params
+airflow tasks test tables_dag $1 2021-02-22 -t $dict_params
