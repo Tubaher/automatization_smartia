@@ -1,5 +1,6 @@
 import logging
 import pandas as pd
+from utils import pandas_utils
 
 from file_parser.file_parser import FileParser
 
@@ -24,5 +25,14 @@ class ExcelParser(FileParser):
                                 usecols = columnas)
 
         # names = config.column_names) #engine = 'python')
+
+        # If converters are setting, you can use them to operate over columns
+        # and correct some pior problem with the columns
+        # With this converter, we deal with csv corrupted information
+        # e.g: multiple quotation marks, float number separator, and so on
+        
+        if self.metainfo.get('converters') is not None:
+            full_df = pandas_utils.clean_corruptions(full_df, self.metainfo['converters'])
+
 
         return full_df

@@ -18,12 +18,15 @@
 
     "campana" : {
         "hoja": "Creacion Campaña SMS",
-        "modo" : "formulario",
 
         "columnas" : [
             {
                 "nombre_salida": "nombre_campana",
-                "nombre_entrada": [5,"C"]
+                "nombre_entradas": [
+                    { "hoja" : "Creacion Campaña SMS",
+                      "row_column" : [5,"C"]
+                    }
+                ]
             },
             {
                 "nombre_salida": "id",
@@ -35,7 +38,6 @@
 
     "programacion" : {
         "hoja": "PROGRAMACION CAMPAÑA SMS",
-        "modo" : "tabla", 
         "columnas" : [
             {
                 "nombre_entrada": "Fecha",
