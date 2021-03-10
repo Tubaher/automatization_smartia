@@ -1,3 +1,5 @@
+
+**Contents** 
 - [Setting Up Metainfo Files](#setting-up-metainfo-files)
   - [General Attributes](#general-attributes)
     - [Metacolumns](#metacolumns)
