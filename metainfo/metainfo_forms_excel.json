@@ -17,20 +17,15 @@
     "tablas_salida" : ["campana","programacion"] ,
 
     "campana" : {
-        "hoja": "Creacion Campaña SMS",
 
-        "columnas" : [
+        "record" : [
             {
                 "nombre_salida": "nombre_campana",
-                "nombre_entradas": [
-                    { "hoja" : "Creacion Campaña SMS",
-                      "row_column" : [5,"C"]
-                    }
-                ]
+                "celda_entrada": [5,"C", "Creacion Campaña SMS"]
             },
             {
                 "nombre_salida": "id",
-                "nombre_entrada": [14, "C"]
+                "celda_entrada": [14, "C", "Creacion Campaña SMS"]
             }
             
         ]

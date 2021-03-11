@@ -1,16 +1,17 @@
 
 **Contents** 
 - [Setting Up Metainfo Files](#setting-up-metainfo-files)
-  - [General Attributes](#general-attributes)
-    - [Metacolumns](#metacolumns)
-    - [Converters](#converters)
   - [Table Files - Metainfo Style](#table-files---metainfo-style)
+    - [General Attributes](#general-attributes)
+      - [**Metacolumns**](#metacolumns)
+      - [**Converters**](#converters)
     - [CSV Files Attributes](#csv-files-attributes)
     - [Excel or xlsx Files Attributes](#excel-or-xlsx-files-attributes)
     - [Fixed Width or "ancho_fijo" Files Attributes](#fixed-width-or-ancho_fijo-files-attributes)
       - [**Loading from an external .xlsx file**](#loading-from-an-external-xlsx-file)
       - [**Loading within the same metainfo file**](#loading-within-the-same-metainfo-file)
   - [Form Files - Metainfo Style](#form-files---metainfo-style)
+    - [General Attributes](#general-attributes-1)
     - [Excel Form or xlsx Form Files Attributes](#excel-form-or-xlsx-form-files-attributes)
 
 # Setting Up Metainfo Files
@@ -23,7 +24,9 @@ In short, the metainfo files help us to set up the following information:
 
 In the following, we detail the information that must contain the metainfo files. We have to keep in mind that there are metainfo files for `tables` and `forms`. Also, there are general attributes, which have all the metainfo files, and other attributes that are setting up according to the type.
 
-## General Attributes
+## Table Files - Metainfo Style
+
+### General Attributes
 
 The general attributes of all the metainfo files are the following:
 
@@ -39,7 +42,7 @@ The general attributes of all the metainfo files are the following:
 | primera fila  | The first row from where the records are read.<br>If the file contains a header this attribute is <br>the row where the header is presented | 0 (default)            |
 | tablas_salida | Specify the name of output tables, which will be <br>stored in database                                                                     | e.g: ["usuarios", "gastos"] |
 
-### Metacolumns
+#### **Metacolumns**
 Here, for each table name you can define an attribute that contains a list of metacolumns. These metacolumns indicate the values ​​contained in each output column. Also, we can configure some operation between input columns and default values per column.
 
 Then, we draw out an example of this attribute with four columns:
@@ -73,7 +76,7 @@ Then, we draw out an example of this attribute with four columns:
     ]
 ```
 
-### Converters
+#### **Converters**
 
 Converters are optional tools focus to deal with corruptions in input files. A converter is a simple function that is executed over a complete column and changes something in all the records. For example, if a column contains double quotation marks at the beginning and end of each record, we can use a remove function to erase that corruption.
 
@@ -109,7 +112,6 @@ The first converter removes doble quotation marks over all the input columns. Th
 
 For a further exploration, you can review [metainfo_csv_alterado_sample.json](metainfo_csv_alterado_sample.json)
 
-## Table Files - Metainfo Style
 ### CSV Files Attributes
 
 The common setting attributes for .csv files are
@@ -219,6 +221,28 @@ You can also you the attribute `ancho` per column to specify the width of the co
 ```
 
 ## Form Files - Metainfo Style
+### General Attributes
+In this metainfo files you have to consider less general information
 
+| Attribute      | Description                           | Options                                                                                                                                                                              |
+|----------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| tipo           | Parser Type to apply                  | csv, xlsx, ancho_fijo, xlsx_form                                                                                                                                                     |
+| file_extension | Extension of input files              | csv, xlsx, txt, raw, etc                                                                                                                                                             |
+| ruta_archivos  | Directory to the input files          | stuff/input_files                                                                                                                                                                    |
+| modo_lectura   | Read mode to process the input files. | all_dir: process all the files in the 'ruta_archivos' dir<br>ultimo:  process the last file in the 'ruta_archivos' dir<br>hoy:     process the today file in the 'ruta_archivos' dir |
+| formato_fecha  | Define the date format of input files | e.g: _%Y_%m_%d                                                                                                                                                                       |
+| client         | Client name of the input file         | e.g: BANCO_AGRICOLA                                                | tablas_salida | Specify the name of output tables, which will be <br>stored in database                                                                     | e.g: ["usuarios", "gastos"] |                                                                                                                  
 ### Excel Form or xlsx Form Files Attributes
+
+In this metainfo files, you can differentiate two kind of sheets: `hojas_formulario` and `hojas_tabla`
+
+1. The `hojas_formulario` are sheets with information in specific cells, and althogether build a record to an output table.
+2. The `hojas_tabla` are sheets with information in form of table that can be filtered in the same way as `Table Files` of the initial sections. The filtered columns compose the output table.
+
+In this way, the metainfo files enclose both behaviors of tables and forms. To do that, we fixed the corresponding sheets with the following attributes:
+
+| Attribute      | Description                           | Options                                                                                                                                                                              |
+|----------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| tablas_salida | Specify the name of output tables, which will be <br>stored in database                                                                     | e.g: ["usuarios", "gastos"] |
+| tablas_salida | Specify the name of output tables, which will be <br>stored in database                                                                     | e.g: ["usuarios", "gastos"] |
 

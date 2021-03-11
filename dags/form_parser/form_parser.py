@@ -1,25 +1,10 @@
 import pandas as pd
 import logging
+from file_parser.file_parser import TableParser
 
-class FormParser:
+class FormParser(TableParser):
     def __init__(self, metainfo):
         self.metainfo = metainfo
-
-    def generate_dfs(self, path_file):        
-        # Process the file according its extension
-        full_df = self.file_processing(path_file)
-
-        # Process each table from the columns of the original file
-        # return a dataframe per each table
-        tables_dataframes = self.__processing_tables(full_df)
-
-        return tables_dataframes
-
-    # def file_processing(self, path_file):
-    #     #TODO: require a function to load the file into a data frame
-    #     df = pd.DataFrame(path_file)
-
-    #     return df
 
     def __processing_tables(self, full_df):
         """
@@ -28,20 +13,18 @@ class FormParser:
 
         return: List of dataframes. On data frame per table.
         """
-
-        dict_hojas_modo = { hoja_name: "formulario" for hoja_name in self.metainfo['hojas_formulario']}
-
-        if self.metainfo.get('hojas_tabla') is not None:
-            for hoja in self.metainfo['hojas_tabla']:
-                hoja_name = hoja['nombre_hoja']
-                dict_hojas_modo[hoja_name] = "tabla"
         
         tables_dataframes = {}
 
         for table_name in self.metainfo["tablas_salida"]:
 
+            # generate a df with specific table sheet
+            if self.metainfo[table_name].get("columnas") is not None:
+                hoja = self.metainfo[table_name]['hoja']
+                table_df = self.__generate_table(full_df["tabla"][hoja], self.metainfo[table_name])
             # generate a df with specific cells in the full_df
-            table_df = self.__generate_columns(full_df, self.metainfo[table_name],dict_hojas_modo)
+            elif self.metainfo[table_name].get("record") is not None:
+                table_df = self.__generate_record(full_df, self.metainfo[table_name])
 
             logging.info("TABLE DF AFTER LOAD: \n {}".format(table_df))
 
@@ -54,46 +37,25 @@ class FormParser:
         alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         return alphabet.index(letter)
 
-    def __generate_columns(self, full_df, columns,dict_hojas_modo):
+    def __generate_record(self, full_df, meta_record):
 
-        #extract the names in and out from meta columns
-        logging.info('Columnas: {}'.format(columns))
+        cells_in = [m_c["celda_entrada"] for m_c in meta_record['columnas'] ]
+        columns_out = [m_c["nombre_salida"] for m_c in meta_record['columnas'] ]
 
-        if columns['modo'] == 'formulario':
-            hoja = columns['hoja']
-            columns_in = [m_c["nombre_entrada"] for m_c in columns['columnas'] ]
-            columns_out = [m_c["nombre_salida"] for m_c in columns['columnas'] ]
+        # Extract the record values according to the information of cells_in
+        record_values = []
+        for row, column, sheet_name in cells_in:
+            df_row = row - 1
+            df_col = self.alphabet_index(column)
 
-            # process columns_in to get the right cell
-            logging.info('Columnas de entrada: {}'.format(columns_in))
+            value = full_df["formulario"][sheet_name].loc[df_row, df_col]
 
-            cells = [ (row-1, self.alphabet_index(column)) for row, column in columns_in]
-            logging.info('cells value: {}'.format(cells))
-            #filter some colums from the full_df
-            # logging.info('Full dataframe: {}'.format(full_df))
-            logging.info('values: {}'.format(full_df['formulario']['Creacion Campaña SMS']))
-            columns_value = [full_df[columns['modo']][hoja].loc[cell[0], cell[1]] for cell in cells]
-            logging.info('Columns value: {}'.format(columns_value))
-            # rename column names according to the output names
-            dict_pandas = {}
+            record_values.append(value)
 
-            for idx, value in enumerate(columns_value):
-                dict_pandas[columns_out[idx]] = [value]
-            
-            table_df = pd.DataFrame(dict_pandas)
+        # rename column names according to the output names
+        dict_pandas = {}
 
-        elif columns['modo'] == 'tabla':
-            hoja = columns['hoja']
-            #extract the names in and out from meta columns
-            columns_in = [m_c["nombre_entrada"] for m_c in columns['columnas'] ]
-            columns_out = [m_c["nombre_salida"] for m_c in columns['columnas'] ]
-
-            #filter some colums from the full_df
-            table_df = full_df[columns['modo']][hoja][columns_in]
-
-            # rename column names according to the output names
-            dict_names = { past_name: new_name for past_name, new_name in zip(columns_in,columns_out)}
-            table_df = table_df.rename(columns = dict_names)
-
-
-        return table_df
+        for idx, value in enumerate(record_values):
+            dict_pandas[columns_out[idx]] = [value]
+        
+        return pd.DataFrame(dict_pandas)

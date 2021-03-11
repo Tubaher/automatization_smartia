@@ -2,9 +2,9 @@ import logging
 import pandas as pd
 from utils import pandas_utils
 
-from file_parser.file_parser import FileParser
+from file_parser.file_parser import TableParser
 
-class ExcelParser(FileParser):
+class ExcelParser(TableParser):
     def __init__(self, metainfo):
         super().__init__(metainfo)
 

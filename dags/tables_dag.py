@@ -24,7 +24,7 @@ dag = DAG(
     'pandas_dag',
     default_args=default_args,
     description='ETL dag to process data files with different extensions',
-    template_searchpath='scripts/msqlserver',
+    #template_searchpath='scripts/msqlserver',
     schedule_interval=None,
 )
 
@@ -47,4 +47,4 @@ opr_call_sproc = MsSqlOperator(
     dag=dag,
 )
 
-run_load >> run_save >> opr_call_sproc
+run_load >> run_save #>> opr_call_sproc

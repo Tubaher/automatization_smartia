@@ -20,11 +20,11 @@ To update this repository, we recommend to change just few things in the reposit
 First we recommend to use a venv. In Linux it is done by:
 
 ```bash
-    python3 -m venv /path/to/new/virtual/environment
+    python3 -m venv sia
 ```
 Then, we should start it by:
 ```bash
-    source /path/to/new/virtual/environment/bin/activate
+    source sia/bin/activate
 ```
 Here we have to make sure to downgrade or upgrade to the specific pip version:
 ```bash

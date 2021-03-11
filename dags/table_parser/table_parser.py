@@ -2,7 +2,7 @@ import pandas as pd
 import logging
 import utils.config as config
 
-class FileParser:
+class TableParser:
     def __init__(self, metainfo):
         self.metainfo = metainfo
 
@@ -33,43 +33,47 @@ class FileParser:
         tables_dataframes = {}
 
         for table_name in self.metainfo["tablas_salida"]:
-
-            same_columns = []
-            operations_columns = []
-            default_columns = []
             
-            for meta_column in self.metainfo[table_name]:
-                # filter the columns with default values
-                if meta_column.get("default") is not None:
-                    default_columns.append(meta_column)
-
-                # filter the meta columns with operations
-                elif meta_column.get("operaciones") is not None:
-                    operations_columns.append(meta_column)
-
-                # filter some columns from the original
-                else:
-                    same_columns.append(meta_column)
-
-            logging.info("FULL_DF AFTER GENERATE SAME COLS : \n {} \n {}".format(full_df, full_df.dtypes))
-            # generate a df with some filter same columns of the full_df
-            table_df = self.__generate_same_columns(full_df, same_columns)
-
-            # generate columns with default values
-            self.__generate_default_columns(table_df, default_columns)
-
-            logging.info("TABLE DF AFTER OPERATIONS : \n {} \n {}".format(table_df, table_df.dtypes))
-            logging.info("FULL_DF AFTER OPERATIONS : \n {} \n {}".format(full_df, full_df.dtypes))
-
-            # generate columns from operation between columns, 
-            # adding new columns to the right of the table_df
-            self.__generate_operations_columns_str_exec(table_df, full_df, operations_columns)
-
-            logging.info("TABLE DF BEFORE OPERATIONS: \n {}".format(table_df))
-
+            table_df = self.__generate_table(full_df, self.metainfo[table_name])
             tables_dataframes[table_name] = table_df
-            
+
         return tables_dataframes
+
+    def __generate_table(self, full_df, meta_columns):
+        same_columns = []
+        operations_columns = []
+        default_columns = []
+        
+        for meta_column in meta_columns:
+            # filter the columns with default values
+            if meta_column.get("default") is not None:
+                default_columns.append(meta_column)
+
+            # filter the meta columns with operations
+            elif meta_column.get("operaciones") is not None:
+                operations_columns.append(meta_column)
+
+            # filter some columns from the original
+            else:
+                same_columns.append(meta_column)
+
+        logging.info("FULL_DF AFTER GENERATE SAME COLS : \n {} \n {}".format(full_df, full_df.dtypes))
+        # generate a df with some filter same columns of the full_df
+        table_df = self.__generate_same_columns(full_df, same_columns)
+
+        # generate columns with default values
+        self.__generate_default_columns(table_df, default_columns)
+
+        logging.info("TABLE DF AFTER OPERATIONS : \n {} \n {}".format(table_df, table_df.dtypes))
+        logging.info("FULL_DF AFTER OPERATIONS : \n {} \n {}".format(full_df, full_df.dtypes))
+
+        # generate columns from operation between columns, 
+        # adding new columns to the right of the table_df
+        self.__generate_operations_columns_str_exec(table_df, full_df, operations_columns)
+
+        logging.info("TABLE DF BEFORE OPERATIONS: \n {}".format(table_df))
+
+        return table_df
 
     def __generate_same_columns(self, full_df, same_columns):
 
