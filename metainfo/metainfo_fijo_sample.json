@@ -7,7 +7,6 @@
     "cliente": "ANCHO_FIJO",
     "primera_fila": 0,
     "encabezado": false,
-    "separador": "",
 
     "info_columnas" : {
         "read_from" : "metainfo_file",

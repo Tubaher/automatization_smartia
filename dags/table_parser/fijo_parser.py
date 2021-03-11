@@ -25,13 +25,13 @@ class FixedWidthParser(FileParser):
         # Get some important variables
         header = self.metainfo['encabezado']
         fila = self.metainfo['primera_fila']
-        sep = self.metainfo['separador']
+        # sep = self.metainfo['separador']
 
         full_df = pd.read_fwf(path_file, 
                             colspecs = intervals, 
                             header = 0 if header else None,
                             names = column_names, 
-                            sep = sep,
+                            # sep = sep,
                             skiprows = fila)
 
         logging.info("FULL_DF: \n {}".format(full_df))
@@ -48,11 +48,19 @@ class FixedWidthParser(FileParser):
         return full_df
 
     def __columns_info_from_extfile(self, info_columns):
+
+        usecols = info_columns['loc_nombres_campo'] + ","
+
+        if info_columns.get("loc_intervalos") is not None:
+            usecols += info_columns.get("loc_intervalos")
+        elif info_columns.get("loc_ancho") is not None:
+            usecols += info_columns.get("loc_ancho")
+        
         columns_dfs = pd.read_excel(info_columns['dir'],
                         header= None,
                         skiprows= info_columns['primera_fila'] - 1,
                         sheet_name = info_columns['hoja'],
-                        usecols = info_columns['loc_nombres_campo'] + "," + info_columns['loc_intervalos'])
+                        usecols = usecols)
 
         #rename columns names
         columns_dfs.columns = [ i for i in range(len(columns_dfs.columns))]
@@ -64,8 +72,13 @@ class FixedWidthParser(FileParser):
         # we expect to receive two or three columns and perform different process
         # to separate the intervals
         if len(columns_dfs.columns) == 2:
-            intervals = [self.__sep_intervals(str_val) for str_val in columns_dfs[1]]
-        elif len(columns_names.columns) == 3:
+            if info_columns.get("loc_intervalos") is not None:
+                intervals = [self.__sep_intervals(str_val) for str_val in columns_dfs[1]]
+            elif info_columns.get("loc_ancho") is not None:
+                width_list = [ int(w) for w in columns_dfs[1]]
+                intervals = self.__create_interval_from_width(info_columns,width_list)
+      
+        elif len(columns_dfs.columns) == 3:
             intervals = [(int(v1),int(v2)) for (v1,v2) in zip(columns_dfs[1],columns_dfs[2])]
 
         logging.info("INTERVALS: {}".format(intervals))
@@ -87,16 +100,10 @@ class FixedWidthParser(FileParser):
 
         # If we use ancho instead of intervalo
         if len(intervals) == 0:
-            intervals = []
-            acu = 0
-            for c in info_columns["columnas"]:
-                val1 = acu
-                val2 = acu + c["ancho"] + 1
-                intervals.append((val1,val2))
-                acu += val2
-            info_columns['estilo_intervalos'] = "close-open"
+            width_list = [c['ancho'] for c in info_columns["columnas"]]
+            intervals = self.__create_interval_from_width(info_columns,width_list)
             
-        #move intervals according to the initial inde
+        #move intervals according to the initial index
         intervals = self.__parser_intervals(intervals, 
                                             info_columns['estilo_intervalos'],
                                             info_columns['indice_inicial'])
@@ -104,6 +111,18 @@ class FixedWidthParser(FileParser):
         logging.info("INTERVALS: {}".format(intervals))
 
         return columns_names, intervals
+
+    def __create_interval_from_width(self, info_columns, width_list):
+        intervals = []
+        acu = info_columns['indice_inicial']
+        for width in width_list:
+            val1 = acu
+            val2 = acu + width + 1
+            intervals.append((val1,val2))
+            acu += val2
+        info_columns['estilo_intervalos'] = "close-open"
+
+        return intervals
 
     def __parser_intervals(self, intervals , estilo, init_index = 0):
         """ The interval always must be of style close-open.

@@ -28,13 +28,20 @@ class FormParser:
 
         return: List of dataframes. On data frame per table.
         """
+
+        dict_hojas_modo = { hoja_name: "formulario" for hoja_name in self.metainfo['hojas_formulario']}
+
+        if self.metainfo.get('hojas_tabla') is not None:
+            for hoja in self.metainfo['hojas_tabla']:
+                hoja_name = hoja['nombre_hoja']
+                dict_hojas_modo[hoja_name] = "tabla"
         
         tables_dataframes = {}
 
         for table_name in self.metainfo["tablas_salida"]:
 
             # generate a df with specific cells in the full_df
-            table_df = self.__generate_columns(full_df, self.metainfo[table_name])
+            table_df = self.__generate_columns(full_df, self.metainfo[table_name],dict_hojas_modo)
 
             logging.info("TABLE DF AFTER LOAD: \n {}".format(table_df))
 
@@ -47,7 +54,7 @@ class FormParser:
         alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         return alphabet.index(letter)
 
-    def __generate_columns(self, full_df, columns):
+    def __generate_columns(self, full_df, columns,dict_hojas_modo):
 
         #extract the names in and out from meta columns
         logging.info('Columnas: {}'.format(columns))
