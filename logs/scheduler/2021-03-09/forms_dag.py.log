@@ -1,0 +1,350 @@
+[2021-03-09 19:51:06,034] {scheduler_job.py:182} INFO - Started process (PID=32) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:51:06,036] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:51:06,037] {logging_mixin.py:104} INFO - [2021-03-09 19:51:06,037] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:51:06,048] {logging_mixin.py:104} INFO - [2021-03-09 19:51:06,047] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:51:06,049] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:51:06,077] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.047 seconds
+[2021-03-09 19:51:36,391] {scheduler_job.py:182} INFO - Started process (PID=60) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:51:36,393] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:51:36,394] {logging_mixin.py:104} INFO - [2021-03-09 19:51:36,394] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:51:36,403] {logging_mixin.py:104} INFO - [2021-03-09 19:51:36,402] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:51:36,403] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:51:36,426] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.038 seconds
+[2021-03-09 19:52:07,342] {scheduler_job.py:182} INFO - Started process (PID=88) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:52:07,344] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:52:07,344] {logging_mixin.py:104} INFO - [2021-03-09 19:52:07,344] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:52:07,353] {logging_mixin.py:104} INFO - [2021-03-09 19:52:07,352] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:52:07,353] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:52:07,373] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.034 seconds
+[2021-03-09 19:52:38,084] {scheduler_job.py:182} INFO - Started process (PID=116) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:52:38,085] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:52:38,086] {logging_mixin.py:104} INFO - [2021-03-09 19:52:38,086] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:52:38,097] {logging_mixin.py:104} INFO - [2021-03-09 19:52:38,096] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:52:38,098] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:52:38,122] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.042 seconds
+[2021-03-09 19:53:08,683] {scheduler_job.py:182} INFO - Started process (PID=144) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:53:08,684] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:53:08,685] {logging_mixin.py:104} INFO - [2021-03-09 19:53:08,685] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:53:08,695] {logging_mixin.py:104} INFO - [2021-03-09 19:53:08,693] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:53:08,696] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:53:08,720] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.040 seconds
+[2021-03-09 19:53:39,305] {scheduler_job.py:182} INFO - Started process (PID=172) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:53:39,308] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:53:39,309] {logging_mixin.py:104} INFO - [2021-03-09 19:53:39,309] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:53:39,319] {logging_mixin.py:104} INFO - [2021-03-09 19:53:39,318] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:53:39,320] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:53:39,346] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.045 seconds
+[2021-03-09 19:54:09,962] {scheduler_job.py:182} INFO - Started process (PID=200) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:54:09,963] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:54:09,965] {logging_mixin.py:104} INFO - [2021-03-09 19:54:09,964] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:54:09,978] {logging_mixin.py:104} INFO - [2021-03-09 19:54:09,977] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:54:09,978] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:54:10,002] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.044 seconds
+[2021-03-09 19:54:40,588] {scheduler_job.py:182} INFO - Started process (PID=228) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:54:40,591] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:54:40,592] {logging_mixin.py:104} INFO - [2021-03-09 19:54:40,592] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:54:40,602] {logging_mixin.py:104} INFO - [2021-03-09 19:54:40,601] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:54:40,602] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:54:40,623] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.040 seconds
+[2021-03-09 19:55:11,343] {scheduler_job.py:182} INFO - Started process (PID=256) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:55:11,345] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:55:11,345] {logging_mixin.py:104} INFO - [2021-03-09 19:55:11,345] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:55:11,356] {logging_mixin.py:104} INFO - [2021-03-09 19:55:11,354] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:55:11,356] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:55:11,377] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.038 seconds
+[2021-03-09 19:57:56,133] {scheduler_job.py:182} INFO - Started process (PID=37) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:57:56,134] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:57:56,135] {logging_mixin.py:104} INFO - [2021-03-09 19:57:56,135] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:57:56,146] {logging_mixin.py:104} INFO - [2021-03-09 19:57:56,145] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:57:56,146] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:57:56,166] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.038 seconds
+[2021-03-09 19:58:26,734] {scheduler_job.py:182} INFO - Started process (PID=65) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:58:26,736] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:58:26,737] {logging_mixin.py:104} INFO - [2021-03-09 19:58:26,737] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:58:26,748] {logging_mixin.py:104} INFO - [2021-03-09 19:58:26,747] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:58:26,749] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:58:26,769] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.038 seconds
+[2021-03-09 19:58:56,978] {scheduler_job.py:182} INFO - Started process (PID=91) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:58:56,980] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:58:56,980] {logging_mixin.py:104} INFO - [2021-03-09 19:58:56,980] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:58:56,988] {logging_mixin.py:104} INFO - [2021-03-09 19:58:56,988] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:58:56,989] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:58:57,010] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.035 seconds
+[2021-03-09 19:59:27,589] {scheduler_job.py:182} INFO - Started process (PID=123) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:59:27,590] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:59:27,591] {logging_mixin.py:104} INFO - [2021-03-09 19:59:27,591] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:59:27,600] {logging_mixin.py:104} INFO - [2021-03-09 19:59:27,599] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:59:27,600] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:59:27,619] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.034 seconds
+[2021-03-09 19:59:57,857] {scheduler_job.py:182} INFO - Started process (PID=151) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:59:57,858] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 19:59:57,859] {logging_mixin.py:104} INFO - [2021-03-09 19:59:57,859] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:59:57,868] {logging_mixin.py:104} INFO - [2021-03-09 19:59:57,867] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 19:59:57,869] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 19:59:57,886] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.033 seconds
+[2021-03-09 20:00:28,596] {scheduler_job.py:182} INFO - Started process (PID=183) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:00:28,597] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:00:28,598] {logging_mixin.py:104} INFO - [2021-03-09 20:00:28,598] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:00:28,607] {logging_mixin.py:104} INFO - [2021-03-09 20:00:28,606] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:00:28,607] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:00:28,626] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.035 seconds
+[2021-03-09 20:00:59,196] {scheduler_job.py:182} INFO - Started process (PID=211) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:00:59,198] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:00:59,199] {logging_mixin.py:104} INFO - [2021-03-09 20:00:59,199] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:00:59,209] {logging_mixin.py:104} INFO - [2021-03-09 20:00:59,208] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:00:59,209] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:00:59,229] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.037 seconds
+[2021-03-09 20:01:29,940] {scheduler_job.py:182} INFO - Started process (PID=243) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:01:29,942] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:01:29,943] {logging_mixin.py:104} INFO - [2021-03-09 20:01:29,943] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:01:29,957] {logging_mixin.py:104} INFO - [2021-03-09 20:01:29,956] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:01:29,957] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:01:29,984] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.048 seconds
+[2021-03-09 20:02:00,738] {scheduler_job.py:182} INFO - Started process (PID=271) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:02:00,741] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:02:00,742] {logging_mixin.py:104} INFO - [2021-03-09 20:02:00,742] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:02:00,754] {logging_mixin.py:104} INFO - [2021-03-09 20:02:00,753] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:02:00,754] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:02:00,774] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.041 seconds
+[2021-03-09 20:02:31,448] {scheduler_job.py:182} INFO - Started process (PID=299) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:02:31,449] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:02:31,451] {logging_mixin.py:104} INFO - [2021-03-09 20:02:31,451] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:02:31,465] {logging_mixin.py:104} INFO - [2021-03-09 20:02:31,464] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:02:31,465] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:02:31,490] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.047 seconds
+[2021-03-09 20:03:02,068] {scheduler_job.py:182} INFO - Started process (PID=327) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:03:02,070] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:03:02,071] {logging_mixin.py:104} INFO - [2021-03-09 20:03:02,071] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:03:02,086] {logging_mixin.py:104} INFO - [2021-03-09 20:03:02,086] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:03:02,087] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:03:02,115] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.053 seconds
+[2021-03-09 20:03:32,562] {scheduler_job.py:182} INFO - Started process (PID=355) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:03:32,563] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:03:32,566] {logging_mixin.py:104} INFO - [2021-03-09 20:03:32,565] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:03:32,581] {logging_mixin.py:104} INFO - [2021-03-09 20:03:32,580] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:03:32,582] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:03:32,603] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.045 seconds
+[2021-03-09 20:04:03,167] {scheduler_job.py:182} INFO - Started process (PID=382) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:04:03,168] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:04:03,169] {logging_mixin.py:104} INFO - [2021-03-09 20:04:03,169] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:04:03,182] {logging_mixin.py:104} INFO - [2021-03-09 20:04:03,181] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:04:03,183] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:04:03,207] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.044 seconds
+[2021-03-09 20:04:33,710] {scheduler_job.py:182} INFO - Started process (PID=411) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:04:33,712] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:04:33,712] {logging_mixin.py:104} INFO - [2021-03-09 20:04:33,712] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:04:33,722] {logging_mixin.py:104} INFO - [2021-03-09 20:04:33,721] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:04:33,723] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:04:33,742] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.035 seconds
+[2021-03-09 20:05:04,611] {scheduler_job.py:182} INFO - Started process (PID=439) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:05:04,625] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:05:04,626] {logging_mixin.py:104} INFO - [2021-03-09 20:05:04,626] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:05:04,660] {logging_mixin.py:104} INFO - [2021-03-09 20:05:04,659] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:05:04,673] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:05:04,721] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.117 seconds
+[2021-03-09 20:05:35,295] {scheduler_job.py:182} INFO - Started process (PID=465) to work on /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:05:35,297] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/forms_dag.py for tasks to queue
+[2021-03-09 20:05:35,298] {logging_mixin.py:104} INFO - [2021-03-09 20:05:35,298] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:05:35,308] {logging_mixin.py:104} INFO - [2021-03-09 20:05:35,307] {dagbag.py:305} ERROR - Failed to import: /opt/airflow/dags/forms_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/forms_dag.py", line 6, in <module>
+    from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+ModuleNotFoundError: No module named 'airflow.providers.microsoft.mssql'
+[2021-03-09 20:05:35,308] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/forms_dag.py
+[2021-03-09 20:05:35,327] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/forms_dag.py took 0.037 seconds
