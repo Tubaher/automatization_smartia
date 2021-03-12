@@ -17,7 +17,7 @@ To update this repository, we recommend to change just few things in the reposit
 2. Converters
 
 ## Installation
-First we recommend to use a venv. In Linux it is done by:
+First we recommend to use a venv with python 3.7+. In Linux it is done by:
 
 ```bash
     python3 -m venv sia

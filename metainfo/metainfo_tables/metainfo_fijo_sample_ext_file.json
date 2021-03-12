@@ -10,7 +10,7 @@
 
     "info_columnas" : {
         "read_from" : "external_file",
-        "dir" : "metainfo/DIGEVO_Estructura Interfazces.xlsx",
+        "dir" : "metainfo/metainfo_tables/DIGEVO_Estructura Interfazces.xlsx",
         "hoja" : "RAW",
         "primera_fila" : 13,
         "loc_nombres_campo" : "C",
