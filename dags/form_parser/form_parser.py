@@ -4,9 +4,19 @@ from table_parser.table_parser import TableParser
 
 class FormParser(TableParser):
     def __init__(self, metainfo):
-        self.metainfo = metainfo
+        super().__init__(metainfo)
 
-    def __processing_tables(self, full_df):
+    def generate_dfs(self, path_file):        
+        # Process the file according its extension
+        full_df = self.file_processing(path_file)
+
+        # Process each table from the columns of the original file
+        # return a dataframe per each table
+        tables_dataframes = self.__processing_forms_and_tables(full_df)
+
+        return tables_dataframes
+        
+    def __processing_forms_and_tables(self, full_df):
         """
         This function takes the full dataframe and creates sub dataframes
         per each table define in metainfo
@@ -17,11 +27,12 @@ class FormParser(TableParser):
         tables_dataframes = {}
 
         for table_name in self.metainfo["tablas_salida"]:
-
+            
+            logging.info("META TABLE: {}".format(self.metainfo[table_name]))
             # generate a df with specific table sheet
             if self.metainfo[table_name].get("columnas") is not None:
                 hoja = self.metainfo[table_name]['hoja']
-                table_df = self.__generate_table(full_df["tabla"][hoja], self.metainfo[table_name])
+                table_df = self.generate_table(full_df["tabla"][hoja], self.metainfo[table_name]['columnas'])
             # generate a df with specific cells in the full_df
             elif self.metainfo[table_name].get("record") is not None:
                 table_df = self.__generate_record(full_df, self.metainfo[table_name])
@@ -39,8 +50,8 @@ class FormParser(TableParser):
 
     def __generate_record(self, full_df, meta_record):
 
-        cells_in = [m_c["celda_entrada"] for m_c in meta_record['columnas'] ]
-        columns_out = [m_c["nombre_salida"] for m_c in meta_record['columnas'] ]
+        cells_in = [m_c["celda_entrada"] for m_c in meta_record['record'] ]
+        columns_out = [m_c["nombre_salida"] for m_c in meta_record['record'] ]
 
         # Extract the record values according to the information of cells_in
         record_values = []

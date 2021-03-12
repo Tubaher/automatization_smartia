@@ -1,5 +1,5 @@
 {
-    "tipo": "xlsx_form",
+    "tipo": "form",
     "file_extension" : "xlsx",
     "ruta_archivos": "stuff/input_files/Claro",
     "modo_lectura": "all_dir",
@@ -35,31 +35,31 @@
         "hoja": "PROGRAMACION CAMPAÑA SMS",
         "columnas" : [
             {
-                "nombre_entrada": "Fecha",
+                "nombre_entradas": ["Fecha"],
                 "nombre_salida": "fecha"
             },
             {
-                "nombre_entrada": "cliente",
+                "nombre_entradas": ["cliente"],
                 "nombre_salida": "cliente"
             },
             {
-                "nombre_entrada": "Producto",
+                "nombre_entradas": ["Producto"],
                 "nombre_salida": "producto"
             },
             {
-                "nombre_entrada": "Mensaje",
+                "nombre_entradas": ["Mensaje"],
                 "nombre_salida": "mensaje"
             },
             {
-                "nombre_entrada": "ID",
+                "nombre_entradas": ["ID"],
                 "nombre_salida": "id"
             },
             {
-                "nombre_entrada": "Segmento (base)",
+                "nombre_entradas": ["Segmento (base)"],
                 "nombre_salida": "segmento"
             },
             {
-                "nombre_entrada": "Registros (envios)",
+                "nombre_entradas": ["Registros (envios)"],
                 "nombre_salida": "registros"
             }
         ]

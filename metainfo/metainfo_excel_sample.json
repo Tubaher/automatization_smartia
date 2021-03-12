@@ -1,8 +1,8 @@
 {
-    "tipo": "xlsx_form",
+    "tipo": "xlsx",
     "file_extension" : "xlsx",
     "ruta_archivos": "stuff/input_files/BANCO_AGRICOLA",
-    "modo_lectura": "hoy",
+    "modo_lectura": "ultimo",
     "formato_fecha" : "_%Y_%m_%d",
     "cliente": "BANCO_AGRICOLA",
     "hoja": "Hoja 1",

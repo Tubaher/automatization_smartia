@@ -221,7 +221,11 @@ You can also you the attribute `ancho` per column to specify the width of the co
 ```
 
 ## Form Files - Metainfo Style
+
+You can check the example [metainfo_form.json](metainfo_form.json)
+
 ### General Attributes
+
 In this metainfo files you have to consider less general information
 
 | Attribute      | Description                           | Options                                                                                                                                                                              |
@@ -243,6 +247,71 @@ In this way, the metainfo files enclose both behaviors of tables and forms. To d
 
 | Attribute      | Description                           | Options                                                                                                                                                                              |
 |----------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| tablas_salida | Specify the name of output tables, which will be <br>stored in database                                                                     | e.g: ["usuarios", "gastos"] |
-| tablas_salida | Specify the name of output tables, which will be <br>stored in database                                                                     | e.g: ["usuarios", "gastos"] |
+| hojas_formulario | Just store the name of the form sheets                                                               | e.g: ["Creacion Campaña SMS"] |
+| hojas_tabla | Store a mini dictionary per sheet                                                                    | see below example |
 
+Example of sheet in `hojas_tabla`
+```json
+    {   "nombre_hoja" : "PROGRAMACION CAMPAÑA SMS",
+        "primera_fila" : 2,
+        "columnas_archivo": "B:H",
+        "encabezado": true
+    }
+```
+
+The `hojas_tablas` stores mini dictionaries per sheet, where its attributes represent the following:
+
+| Attribute | Description                                     | Options       |
+|-----------|-------------------------------------------------|---------------|
+| nombre_hoja      | Sheet name of the input files                   | e.g: "Hoja 1" |
+| primera_file  | Row where starts the information, including the header. | e.g: 1    |
+| columnas_archivo  | Columns where is the information | e.g: "A:I"    |
+| encabezado  | Boolean to known if the sheet includes the header | true, false   |
+
+Now, as we consider two kind of sheets, we can store a ouput table or an output record in a table.
+
+### Record
+
+To define a record we have to set the input cells and sheet per output column, in the following way:
+
+```json
+    "campana" : {
+
+        "record" : [
+            {
+                "nombre_salida": "nombre_campana",
+                "celda_entrada": [5,"C", "Creacion Campaña SMS"]
+            },
+            {
+                "nombre_salida": "id",
+                "celda_entrada": [14, "C", "Creacion Campaña SMS"]
+            }
+            
+        ]
+    },
+```
+
+### Common Table
+
+To define a table, you just need to describe the columns as the metacolumns in [Metacolumns](#metacolumns) section. However, now you have to mention the name of the sheet where the information is recorded. Here, a short example:
+
+```json
+ "programacion" : {
+        "hoja": "PROGRAMACION CAMPAÑA SMS",
+        "columnas" : [
+            {
+                "nombre_entrada": "Fecha",
+                "nombre_salida": "fecha"
+            },
+            {
+                "nombre_entrada": "cliente",
+                "nombre_salida": "cliente"
+            },
+            {
+                "nombre_entrada": "Producto",
+                "nombre_salida": "producto"
+            }
+        ]
+    }
+
+```

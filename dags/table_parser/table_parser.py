@@ -34,16 +34,21 @@ class TableParser:
 
         for table_name in self.metainfo["tablas_salida"]:
             
-            table_df = self.__generate_table(full_df, self.metainfo[table_name])
+            table_df = self.generate_table(full_df, self.metainfo[table_name])
             tables_dataframes[table_name] = table_df
 
         return tables_dataframes
 
-    def __generate_table(self, full_df, meta_columns):
+    def log_any(self,a):
+        logging.info(" loggin test class: {}".format(a))
+        return a + 1
+
+    def generate_table(self, full_df, meta_columns):
         same_columns = []
         operations_columns = []
         default_columns = []
         
+        logging.info("META COLUMNS: {}".format(meta_columns))
         for meta_column in meta_columns:
             # filter the columns with default values
             if meta_column.get("default") is not None:
@@ -58,6 +63,7 @@ class TableParser:
                 same_columns.append(meta_column)
 
         logging.info("FULL_DF AFTER GENERATE SAME COLS : \n {} \n {}".format(full_df, full_df.dtypes))
+        logging.info("SAME COLUMNS: {}".format(same_columns))
         # generate a df with some filter same columns of the full_df
         table_df = self.__generate_same_columns(full_df, same_columns)
 
@@ -127,7 +133,11 @@ class TableParser:
 
             for idx, value in enumerate(inter_layer):
                 if idx % 2 == 0:
-                    str_exec += "full_df[{}]".format(value) + " "
+                    if type(value) == int:
+                        str_exec += "full_df[{}]".format(value) + " "
+                    elif type(value) == str:
+                        str_exec += "full_df[\"{}\"]".format(value) + " "
+
                 else:
                     str_exec += str(value) + " "
                     

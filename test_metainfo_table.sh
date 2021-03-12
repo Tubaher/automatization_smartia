@@ -1,5 +1,14 @@
-#DIR_CONFIG="metainfo/metainfo_excel_sample.json"
-#dict_params="{\"cfg_file\":\"${DIR_CONFIG}\"}"
+#!/bin/bash
+
+DIR_METAFILES="metainfo/"
+declare -a FILES_TO_TEST=("metainfo_csv_alterado_sample.json" \
+                      # "metainfo_csv_sample.json" \
+                      # "metainfo_excel_sample.json" \
+                      # "metainfo_fijo_sample_ext_file.json" \
+                      # "metainfo_fijo_sample.json" \
+                      "metainfo_form.json")
+
+dict_params="{\"cfg_file\":\"${DIR_CONFIG}\"}"
 
 PATH="${2}metainfo*"
 
@@ -14,11 +23,17 @@ exit_if_error() {
     }
 }
 
-for meta_file in $PATH; do
+for meta_file in ${FILES_TO_TEST[@]}; do
+    
     # dict_params="{\"cfg_file\":\"${meta_file}\"}"
     echo " "
     echo "-----------"
+    meta_file_dir="${DIR_METAFILES}${meta_file}"
+    echo "METAFILE DIR ${meta_file_dir}"
     echo "Running: ./execute_task_tables ${1} ${meta_file}"
-    ./execute_task_tables $1 $meta_file || exit_if_error $? "Test case ${meta_file} failed"
+    source execute_task_tables.sh load_table $meta_file_dir || exit_if_error $? "Test case ${meta_file} failed"
+
+    # ./execute_task_tables $1 $meta_file || exit_if_error $? "Test case ${meta_file} failed"
 
 done
+

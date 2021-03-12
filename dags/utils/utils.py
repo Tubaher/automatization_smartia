@@ -55,7 +55,7 @@ def WrapperFileParser(metainfo):
         parser_f = CSVParser(metainfo)
     elif type_format == "ancho_fijo":
         parser_f = FixedWidthParser(metainfo)
-    elif type_format == "xlsx_form":
+    elif type_format == "form":
         parser_f = ExcelFormParser(metainfo)
     else:
         logging.error("Type format not defined")
