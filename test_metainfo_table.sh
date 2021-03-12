@@ -2,10 +2,10 @@
 
 DIR_METAFILES="metainfo/"
 declare -a FILES_TO_TEST=("metainfo_csv_alterado_sample.json" \
-                      # "metainfo_csv_sample.json" \
-                      # "metainfo_excel_sample.json" \
-                      # "metainfo_fijo_sample_ext_file.json" \
-                      # "metainfo_fijo_sample.json" \
+                      "metainfo_csv_sample.json" \
+                      "metainfo_excel_sample.json" \
+                      "metainfo_fijo_sample_ext_file.json" \
+                      "metainfo_fijo_sample.json" \
                       "metainfo_form.json")
 
 dict_params="{\"cfg_file\":\"${DIR_CONFIG}\"}"
