@@ -1,6 +1,6 @@
 import pandas as pd
 import logging
-from file_parser.file_parser import TableParser
+from table_parser.table_parser import TableParser
 
 class FormParser(TableParser):
     def __init__(self, metainfo):

@@ -1,7 +1,7 @@
 import pandas as pd
 import sqlalchemy as sa
 from os.path import join
-import psycopg2
+# import psycopg2
 import utils.config as config
 import pyodbc
 import utils.utils as utils

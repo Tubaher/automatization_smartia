@@ -3,7 +3,7 @@ import pandas as pd
 from utils import pandas_utils
 import re
 
-from file_parser.file_parser import TableParser
+from table_parser.table_parser import TableParser
 
 class FixedWidthParser(TableParser):
     def __init__(self, metainfo):

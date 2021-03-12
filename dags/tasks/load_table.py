@@ -8,6 +8,7 @@ from glob import glob
 import utils.utils as utils
 from datetime import datetime
 import shutil
+import sys
 
 def load_data(**kwargs):
     """
@@ -29,6 +30,10 @@ def load_data(**kwargs):
         # Loading file with a especific format
         file_path = join(metainfo["ruta_archivos"],"processed")
         
+        # Check if input files exists
+        if not os.path.exists(metainfo["ruta_archivos"]):
+            logging.error("No such files or directy exist: {}".format(metainfo["ruta_archivos"]))
+            sys.exit()
 
         #Create the processed file if not exists
         if not os.path.exists(file_path):

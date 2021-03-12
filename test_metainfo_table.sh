@@ -3,21 +3,22 @@
 
 PATH="${2}metainfo*"
 
-FAILED=0
-PASSED=0
+exit_if_error() {
+  local exit_code=$1
+  shift
+  [[ $exit_code ]] &&               # do nothing if no error code passed
+    ((exit_code != 0)) && {         # do nothing if error code is 0
+      printf 'ERROR: %s\n' "$@" >&2 # we can use better logging here
+      exit "$exit_code"             # we could also check to make sure
+                                    # error code is numeric when passed
+    }
+}
 
 for meta_file in $PATH; do
-    echo $meta_file
-    dict_params="{\"cfg_file\":\"${meta_file}\"}"
+    # dict_params="{\"cfg_file\":\"${meta_file}\"}"
+    echo " "
+    echo "-----------"
+    echo "Running: ./execute_task_tables ${1} ${meta_file}"
+    ./execute_task_tables $1 $meta_file || exit_if_error $? "Test case ${meta_file} failed"
 
-    {
-    airflow tasks test table_dag $1 2021-02-22 -t $dict_params
-    PASSED=$(( PASSED + 1 ))
-    echo "Passed: ${meta_file}"
-    } || { 
-    echo "Failed: ${meta_file}"
-    FAILED=$(( FAILED + 1 ))
-    }
 done
-
-echo "PASSED: ${PASSED} and FAILED: ${FAILED}"
