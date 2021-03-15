@@ -5,4 +5,4 @@
 
 dict_params="{\"cfg_file\":\"${2}\"}"
 
-/home/zoso/anaconda3/envs/smartia/bin/airflow tasks test tables_dag $1 2021-02-22 -t $dict_params
+/home/airflow/.local/bin/airflow tasks test tables_dag $1 2021-02-22 -t $dict_params

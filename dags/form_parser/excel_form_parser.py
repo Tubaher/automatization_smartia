@@ -16,6 +16,7 @@ class ExcelFormParser(FormParser):
 
         df_formularios = pd.read_excel(path_file,
                                         header=None,
+                                        engine = 'openpyxl',
                                         sheet_name = self.metainfo.get('hojas_formulario'))
 
 
@@ -42,6 +43,7 @@ class ExcelFormParser(FormParser):
                 # 3. si tiene encabezado o no tiene encabezado
                 df_table = pd.read_excel(path_file,
                                         header=0 if header else None,
+                                        engine= 'openpyxl',
                                         skiprows= fila,
                                         sheet_name = hoja,
                                         usecols = columnas)

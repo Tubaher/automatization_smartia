@@ -58,6 +58,7 @@ class FixedWidthParser(TableParser):
         
         columns_dfs = pd.read_excel(info_columns['dir'],
                         header= None,
+                        engine= 'openpyxl',
                         skiprows= info_columns['primera_fila'] - 1,
                         sheet_name = info_columns['hoja'],
                         usecols = usecols)

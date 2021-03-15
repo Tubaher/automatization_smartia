@@ -20,6 +20,7 @@ class ExcelParser(TableParser):
         # 3. si tiene encabezado o no tiene encabezado
         full_df = pd.read_excel(path_file,
                                 header=0 if header else None,
+                                engine = 'openpyxl',
                                 skiprows= fila,
                                 sheet_name = hoja,
                                 usecols = columnas)

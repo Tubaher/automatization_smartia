@@ -5,3 +5,4 @@ dags/file_parser/__pycache__
 stuff
 dags/tasks/__pycache__
 __pycache__/
+logs
